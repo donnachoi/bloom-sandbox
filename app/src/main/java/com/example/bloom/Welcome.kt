@@ -1,5 +1,6 @@
 package com.example.bloom
 
+import android.content.res.Configuration
 import android.graphics.Color.alpha
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -113,8 +114,10 @@ fun ButtonLogin() {
         )
     }
 }
-
 @Preview(widthDp = 360, heightDp = 640)
+@Preview(widthDp = 360, heightDp = 640,
+    uiMode = Configuration.UI_MODE_NIGHT_YES or Configuration.UI_MODE_TYPE_NORMAL
+)
 @Preview(widthDp = 673, heightDp = 841)
 @Composable
 fun WelcomePreview() {

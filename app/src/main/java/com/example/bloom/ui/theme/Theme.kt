@@ -22,6 +22,7 @@ private val DarkColorPalette = darkColors(
 
 private val LightColorPalette = lightColors(
     primary = Pink100,
+    primaryVariant = Pink50,
     secondary = Pink900,
     background = Color.White,
     surface = White850,

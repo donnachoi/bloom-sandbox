@@ -2,6 +2,7 @@ package com.example.bloom.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
+val Pink50 = Color(0xFFFFFBFB)
 val Pink100 = Color(0xFFFFF1F1)
 val Pink900 = Color(0xFF3F2C2C)
 val Green300 = Color(0xFFB8C9B8)
