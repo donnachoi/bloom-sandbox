@@ -50,7 +50,7 @@ fun WelcomeScreen() {
 
 @Composable
 fun WelcomeBgImage() {
-    val image: Painter = painterResource(id = R.drawable.dark_welcome_bg)
+    val image: Painter = painterResource(id = R.drawable.light_welcome_bg)
     Image(
         painter = image,
         contentDescription = "",
