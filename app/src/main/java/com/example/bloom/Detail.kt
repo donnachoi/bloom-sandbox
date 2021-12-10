@@ -5,7 +5,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -94,6 +96,44 @@ fun MoreDetail() {
 
 @Composable
 fun RelatedCollections() {
+    CollectionCard()
+}
+
+@Composable
+fun CollectionCard() {
+    Card(
+        shape = MaterialTheme.shapes.medium,
+        modifier = Modifier
+            .width(136.dp)
+            .height(136.dp)
+            .background(color = MaterialTheme.colors.surface)
+    ) {
+        Column() {
+            val image: Painter = painterResource(id = R.drawable.collection_desert)
+            Image(
+                painter = image,
+                contentDescription = "",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(96.dp)
+            )
+            Text(
+                text = "Desert chic",
+                style = MaterialTheme.typography.h2,
+                modifier = Modifier
+//                    .align(Alignment.Horizontal.BottomStart)
+                    .padding(all = 8.dp)
+            )
+        }
+    }
+}
+
+@Preview
+@Composable
+fun CollectionCardPreview() {
+    BloomTheme {
+        CollectionCard()
+    }
 }
 
 @Preview(widthDp = 360, heightDp = 640)
@@ -104,3 +144,4 @@ fun DetailPreview() {
         DetailScreen()
     }
 }
+

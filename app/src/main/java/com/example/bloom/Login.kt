@@ -10,12 +10,14 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -41,7 +43,7 @@ fun LoginScreen() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             LoginContent()
-//            TextFieldDemo()
+            TextFieldDemo()
         }
     }
 }
@@ -59,6 +61,19 @@ fun LoginContent() {
     )
 }
 
+@Composable
+fun TextFieldDemo() {
+    Column(Modifier.padding(16.dp)) {
+        val textState = remember { mutableStateOf(TextFieldValue()) }
+        TextField(
+            value = textState.value,
+            onValueChange = { textState.value = it },
+            placeholder = {
+                Text(text = "Email address")
+            },
+        )
+    }
+}
 //@Composable
 //fun TextFieldDemo() {
 //    Column(Modifier.padding(16.dp)) {
