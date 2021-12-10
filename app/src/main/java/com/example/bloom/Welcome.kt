@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import com.example.bloom.ui.theme.BloomTheme
 
@@ -106,6 +107,7 @@ fun ButtonLogin() {
     OutlinedButton(
         colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.primary.copy(alpha = 0f)),
         shape = MaterialTheme.shapes.large,
+        elevation = ButtonDefaults.elevation(0.dp),
         onClick = {}
     ) {
         Text(
@@ -114,8 +116,10 @@ fun ButtonLogin() {
         )
     }
 }
+
 @Preview(widthDp = 360, heightDp = 640)
-@Preview(widthDp = 360, heightDp = 640,
+@Preview(
+    widthDp = 360, heightDp = 640,
     uiMode = Configuration.UI_MODE_NIGHT_YES or Configuration.UI_MODE_TYPE_NORMAL
 )
 @Preview(widthDp = 673, heightDp = 841)
