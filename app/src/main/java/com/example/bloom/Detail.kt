@@ -61,11 +61,19 @@ fun DetailContent() {
 
 @Composable
 fun MoreDetail() {
+    val expanded = remember { mutableStateOf(false) }
+
+    val extraPadding = if (expanded.value) 48.dp else 8.dp
+
     Row(
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 4.dp, horizontal = 4.dp)
     ) {
         Column(
-            horizontalAlignment = Alignment.Start,
+            modifier = Modifier
+                .weight(1f)
+                .padding(bottom = extraPadding)
         ) {
             Text(
                 style = MaterialTheme.typography.h2,
@@ -73,23 +81,17 @@ fun MoreDetail() {
                 text = "Care instructions"
             )
         }
-        Column(
-            horizontalAlignment = Alignment.End,
-        )
-        {
-            val expanded = remember { mutableStateOf(false) }
-            OutlinedButton(
-                colors = ButtonDefaults.buttonColors(
-                    backgroundColor = MaterialTheme.colors.primary.copy(
-                        alpha = 0f
-                    )
-                ),
-                shape = MaterialTheme.shapes.large,
-                elevation = ButtonDefaults.elevation(0.dp),
-                onClick = { expanded.value = !expanded.value },
-            ) {
-                Text(if (expanded.value) "Show less" else "Show more")
-            }
+        OutlinedButton(
+            colors = ButtonDefaults.buttonColors(
+                backgroundColor = MaterialTheme.colors.primary.copy(
+                    alpha = 0f
+                )
+            ),
+            shape = MaterialTheme.shapes.large,
+            elevation = ButtonDefaults.elevation(0.dp),
+            onClick = { expanded.value = !expanded.value },
+        ) {
+            Text(if (expanded.value) "Show less" else "Show more")
         }
     }
 }
@@ -136,8 +138,8 @@ fun CollectionCardPreview() {
     }
 }
 
-@Preview(widthDp = 360, heightDp = 640)
-@Preview(widthDp = 673, heightDp = 841)
+@Preview(name = "DetailPreview - phone", widthDp = 360, heightDp = 640)
+@Preview(name = "DetailPreview - foldable", widthDp = 673, heightDp = 841)
 @Composable
 fun DetailPreview() {
     BloomTheme {
