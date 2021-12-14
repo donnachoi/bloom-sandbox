@@ -40,76 +40,82 @@ class Login : ComponentActivity() {
 @Composable
 fun LoginScreen() {
     Surface(color = MaterialTheme.colors.primaryVariant) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            LoginContent()
-        }
+        LoginContent()
     }
 }
 
 @Composable
 fun LoginContent() {
-    Text(
-        text = "Log in with email",
-        style = MaterialTheme.typography.h2
-    )
-    TextFieldEmail()
-    TextFieldPassword()
-    Text(
-        text = "By clicking below, you agree to our Terms of Use and consent to our Privacy Policy.",
-        style = MaterialTheme.typography.caption.copy(textAlign = TextAlign.Center),
-        color = MaterialTheme.colors.onPrimary
-    )
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+        modifier = Modifier.padding(vertical = 8.dp, horizontal = 16.dp)
+    ) {
+        Text(
+            text = "Log in with email",
+            style = MaterialTheme.typography.h1,
+            modifier = Modifier.padding(vertical = 16.dp)
+        )
+        TextFieldEmail()
+        TextFieldPassword()
+        Text(
+            text = "By clicking below, you agree to our Terms of Use and consent to our Privacy Policy.",
+            style = MaterialTheme.typography.caption.copy(textAlign = TextAlign.Center),
+            color = MaterialTheme.colors.onPrimary,
+            modifier = Modifier.padding(vertical = 16.dp)
+        )
+        ButtonLogin()
+    }
 }
 
 @Composable
 fun TextFieldEmail() {
-    Column(
+    val textState = remember { mutableStateOf(TextFieldValue()) }
+    OutlinedTextField(
         modifier = Modifier
-            .padding(vertical = 4.dp, horizontal = 16.dp)
             .fillMaxWidth()
-    ) {
-        val textState = remember { mutableStateOf(TextFieldValue()) }
-        OutlinedTextField(
-            value = textState.value,
-            onValueChange = { textState.value = it },
-            placeholder = {
-                Text(text = "Email address")
-            },
-        )
-    }
+            .padding(bottom = 8.dp),
+        value = textState.value,
+        onValueChange = { textState.value = it },
+        placeholder = {
+            Text(text = "Email address")
+        },
+    )
 }
+
 
 @Composable
 fun TextFieldPassword() {
-    Column(
+    val textState = remember { mutableStateOf(TextFieldValue()) }
+    OutlinedTextField(
         modifier = Modifier
-            .padding(vertical = 4.dp, horizontal = 16.dp)
-            .fillMaxWidth()
+            .fillMaxWidth(),
+        value = textState.value,
+        onValueChange = { textState.value = it },
+        placeholder = {
+            Text(text = "Password (8+ characters)")
+        },
+    )
+}
+
+@Composable
+private fun ButtonLogin() {
+    val buttonColors = ButtonDefaults.buttonColors(
+        backgroundColor = MaterialTheme.colors.secondary,
+        contentColor = MaterialTheme.colors.background
+    )
+    Button(
+        modifier = Modifier.fillMaxWidth(),
+        colors = buttonColors,
+        shape = MaterialTheme.shapes.large,
+        onClick = {}
     ) {
-        val textState = remember { mutableStateOf(TextFieldValue()) }
-        OutlinedTextField(
-            value = textState.value,
-            onValueChange = { textState.value = it },
-            placeholder = {
-                Text(text = "Password (8+ characters)")
-            },
+        Text(
+            text = "Log in",
+            Modifier.padding(4.dp)
         )
     }
 }
-
-//@Composable
-//fun TextFieldDemo() {
-//    Column(Modifier.padding(16.dp)) {
-////        val textState = remember { mutableStateOf(TextFieldValue()) }
-//        TextField(
-////            value = "textState.value,"
-//////            onValueChange = { textState.value = it }
-//        )
-//        Text("The textfield has this text: ")
-//    }
-//}
 
 @Preview(widthDp = 360, heightDp = 640)
 @Preview(widthDp = 673, heightDp = 841)

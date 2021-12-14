@@ -103,7 +103,7 @@ fun ButtonCreate() {
 }
 
 @Composable
-fun ButtonLogin() {
+private fun ButtonLogin() {
     OutlinedButton(
         colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.primary.copy(alpha = 0f)),
         shape = MaterialTheme.shapes.large,
