@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.*
@@ -43,7 +44,6 @@ fun LoginScreen() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             LoginContent()
-            TextFieldDemo()
         }
     }
 }
@@ -54,6 +54,8 @@ fun LoginContent() {
         text = "Log in with email",
         style = MaterialTheme.typography.h2
     )
+    TextFieldEmail()
+    TextFieldPassword()
     Text(
         text = "By clicking below, you agree to our Terms of Use and consent to our Privacy Policy.",
         style = MaterialTheme.typography.caption.copy(textAlign = TextAlign.Center),
@@ -62,14 +64,36 @@ fun LoginContent() {
 }
 
 @Composable
-fun TextFieldDemo() {
-    Column(Modifier.padding(16.dp)) {
+fun TextFieldEmail() {
+    Column(
+        modifier = Modifier
+            .padding(vertical = 4.dp, horizontal = 16.dp)
+            .fillMaxWidth()
+    ) {
         val textState = remember { mutableStateOf(TextFieldValue()) }
-        TextField(
+        OutlinedTextField(
             value = textState.value,
             onValueChange = { textState.value = it },
             placeholder = {
                 Text(text = "Email address")
+            },
+        )
+    }
+}
+
+@Composable
+fun TextFieldPassword() {
+    Column(
+        modifier = Modifier
+            .padding(vertical = 4.dp, horizontal = 16.dp)
+            .fillMaxWidth()
+    ) {
+        val textState = remember { mutableStateOf(TextFieldValue()) }
+        OutlinedTextField(
+            value = textState.value,
+            onValueChange = { textState.value = it },
+            placeholder = {
+                Text(text = "Password (8+ characters)")
             },
         )
     }
