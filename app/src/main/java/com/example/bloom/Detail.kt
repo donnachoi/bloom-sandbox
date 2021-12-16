@@ -98,11 +98,26 @@ fun MoreDetail() {
 
 @Composable
 fun RelatedCollections() {
-    CollectionCard()
+    Column() {
+        Row() {
+            Text(
+                style = MaterialTheme.typography.h1,
+                text = "Related collections",
+                textAlign = TextAlign.Left
+            )
+        }
+        Row() {
+            CollectionCardDesert()
+            CollectionCardJungle()
+            CollectionCardTerrarium()
+            CollectionCardStatement()
+            CollectionCardEasy()
+        }
+    }
 }
 
 @Composable
-fun CollectionCard() {
+fun CollectionCardDesert() {
     Card(
         shape = MaterialTheme.shapes.medium,
         modifier = Modifier
@@ -130,11 +145,128 @@ fun CollectionCard() {
     }
 }
 
+@Composable
+fun CollectionCardJungle() {
+    Card(
+        shape = MaterialTheme.shapes.medium,
+        modifier = Modifier
+            .width(136.dp)
+            .height(136.dp)
+            .background(color = MaterialTheme.colors.surface)
+    ) {
+        Column() {
+            val image: Painter = painterResource(id = R.drawable.collection_jungle)
+            Image(
+                painter = image,
+                contentDescription = "",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(96.dp)
+            )
+            Text(
+                text = "Jungle vibes",
+                style = MaterialTheme.typography.h2,
+                modifier = Modifier
+//                    .align(Alignment.Horizontal.BottomStart)
+                    .padding(all = 8.dp)
+            )
+        }
+    }
+}
+
+@Composable
+fun CollectionCardTerrarium() {
+    Card(
+        shape = MaterialTheme.shapes.medium,
+        modifier = Modifier
+            .width(136.dp)
+            .height(136.dp)
+            .background(color = MaterialTheme.colors.surface)
+    ) {
+        Column() {
+            val image: Painter = painterResource(id = R.drawable.collection_terrarium)
+            Image(
+                painter = image,
+                contentDescription = "",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(96.dp)
+            )
+            Text(
+                text = "Tiny terrariums",
+                style = MaterialTheme.typography.h2,
+                modifier = Modifier
+//                    .align(Alignment.Horizontal.BottomStart)
+                    .padding(all = 8.dp)
+            )
+        }
+    }
+}
+
+@Composable
+fun CollectionCardStatement() {
+    Card(
+        shape = MaterialTheme.shapes.medium,
+        modifier = Modifier
+            .width(136.dp)
+            .height(136.dp)
+            .background(color = MaterialTheme.colors.surface)
+    ) {
+        Column() {
+            val image: Painter = painterResource(id = R.drawable.collection_statement)
+            Image(
+                painter = image,
+                contentDescription = "",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(96.dp)
+            )
+            Text(
+                text = "Statements",
+                style = MaterialTheme.typography.h2,
+                modifier = Modifier
+//                    .align(Alignment.Horizontal.BottomStart)
+                    .padding(all = 8.dp)
+            )
+        }
+    }
+}
+
+@Composable
+fun CollectionCardEasy() {
+    Card(
+        shape = MaterialTheme.shapes.medium,
+        modifier = Modifier
+            .width(136.dp)
+            .height(136.dp)
+            .background(color = MaterialTheme.colors.surface)
+    ) {
+        Column() {
+            val image: Painter = painterResource(id = R.drawable.collection_easy)
+            Image(
+                painter = image,
+                contentDescription = "",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(96.dp)
+            )
+            Text(
+                text = "Easy care",
+                style = MaterialTheme.typography.h2,
+                modifier = Modifier
+//                    .align(Alignment.Horizontal.BottomStart)
+                    .padding(all = 8.dp)
+            )
+        }
+    }
+}
+
+
 @Preview
 @Composable
-fun CollectionCardPreview() {
+fun RelatedCollectionsPreview() {
     BloomTheme {
-        CollectionCard()
+        RelatedCollections()
     }
 }
 
