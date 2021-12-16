@@ -53,6 +53,16 @@ fun DetailScreen() {
 
 @Composable
 fun DetailHero() {
+    Box() {
+        val image: Painter = painterResource(id = R.drawable.detail_agave)
+        Image(
+            painter = image,
+            contentDescription = "",
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(200.dp)
+        )
+    }
 }
 
 @Composable
