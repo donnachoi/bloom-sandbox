@@ -9,6 +9,10 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Favorite
+import androidx.compose.material.icons.outlined.FavoriteBorder
+import androidx.compose.material.icons.outlined.Share
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -58,10 +62,35 @@ fun DetailHero() {
         Image(
             painter = image,
             contentDescription = "",
+            contentScale = ContentScale.Crop,
             modifier = Modifier
                 .fillMaxWidth()
                 .height(200.dp)
         )
+
+        Row() {
+            Surface(
+                color = MaterialTheme.colors.primary,
+                shape = RoundedCornerShape(topEnd = 24.dp),
+            ) {
+                Text(
+                    text = "$45",
+                    style = MaterialTheme.typography.h2,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(12.dp)
+                )
+            }
+            FloatingActionButton(
+                onClick = {}
+            ) {
+                Icon(Icons.Outlined.FavoriteBorder, "")
+            }
+            FloatingActionButton(
+                onClick = {}
+            ) {
+                Icon(Icons.Outlined.Share, "")
+            }
+        }
     }
 }
 
@@ -108,7 +137,7 @@ fun MoreDetail() {
 
 @Composable
 fun RelatedCollections() {
-    Column(){
+    Column() {
         Row() {
             Text(
                 style = MaterialTheme.typography.h1,
