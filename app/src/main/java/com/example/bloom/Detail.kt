@@ -81,12 +81,14 @@ fun DetailHero() {
                 )
             }
             FloatingActionButton(
-                onClick = {}
+                onClick = {},
+                backgroundColor = MaterialTheme.colors.background
             ) {
                 Icon(Icons.Outlined.FavoriteBorder, "")
             }
             FloatingActionButton(
-                onClick = {}
+                onClick = {},
+                backgroundColor = MaterialTheme.colors.background
             ) {
                 Icon(Icons.Outlined.Share, "")
             }
