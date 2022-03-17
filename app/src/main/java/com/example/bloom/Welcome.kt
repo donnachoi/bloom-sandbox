@@ -6,10 +6,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -66,11 +63,16 @@ fun WelcomeBgImage() {
 
 @Composable
 fun WelcomeSplashImage() {
-    val image: Painter = painterResource(id = R.drawable.light_welcome_illos)
-    Image(
-        painter = image,
-        contentDescription = "",
-    )
+    Box() {
+        val image: Painter = painterResource(id = R.drawable.light_welcome_illos)
+        Image(
+            painter = image,
+            contentDescription = "",
+            modifier = Modifier
+                .offset(x = 60.dp, y = 25.dp)
+                .fillMaxWidth(1f)
+        )
+    }
 }
 
 @Composable
@@ -96,7 +98,7 @@ fun ButtonCreate() {
     Button(
         colors = buttonColors,
         shape = MaterialTheme.shapes.large,
-        onClick = {}
+        onClick = {},
     ) {
         Text("Create account")
     }
@@ -117,12 +119,7 @@ private fun ButtonLogin() {
     }
 }
 
-@Preview(widthDp = 360, heightDp = 640)
-@Preview(
-    widthDp = 360, heightDp = 640,
-    uiMode = Configuration.UI_MODE_NIGHT_YES or Configuration.UI_MODE_TYPE_NORMAL
-)
-@Preview(widthDp = 673, heightDp = 841)
+@Preview
 @Composable
 fun WelcomePreview() {
     BloomTheme {
