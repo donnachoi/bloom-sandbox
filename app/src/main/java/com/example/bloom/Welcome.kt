@@ -5,6 +5,7 @@ import android.graphics.Color.alpha
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
@@ -57,22 +58,22 @@ fun WelcomeBgImage() {
         alpha = 0.75f,
         modifier = Modifier
             .fillMaxSize(1f)
-            .zIndex(-1f)
+            .zIndex(-2f)
     )
 }
 
 @Composable
 fun WelcomeSplashImage() {
-    Box() {
+
         val image: Painter = painterResource(id = R.drawable.light_welcome_illos)
         Image(
             painter = image,
             contentDescription = "",
             modifier = Modifier
-                .offset(x = 60.dp, y = 25.dp)
+                .offset(x = 60.dp, y = 30.dp)
                 .fillMaxWidth(1f)
+                .padding(bottom = 50.dp)
         )
-    }
 }
 
 @Composable
@@ -86,7 +87,10 @@ fun Name() {
 
 @Composable
 fun Description() {
-    Text(text = "Beautiful home garden solutions")
+    Text(
+        text = "Beautiful home garden solutions",
+        modifier = Modifier.padding(bottom = 20.dp)
+    )
 }
 
 @Composable
@@ -98,6 +102,7 @@ fun ButtonCreate() {
     Button(
         colors = buttonColors,
         shape = MaterialTheme.shapes.large,
+        modifier = Modifier.fillMaxWidth(0.9f),
         onClick = {},
     ) {
         Text("Create account")
@@ -106,20 +111,25 @@ fun ButtonCreate() {
 
 @Composable
 private fun ButtonLogin() {
-    OutlinedButton(
-        colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.primary.copy(alpha = 0f)),
+    val buttonColors = ButtonDefaults.buttonColors(
+        backgroundColor = MaterialTheme.colors.primary.copy(alpha = 0f),
+        contentColor = MaterialTheme.colors.secondary,
+    )
+    TextButton(
+        colors = buttonColors,
         shape = MaterialTheme.shapes.large,
+//        border = BorderStroke(0.dp),
         elevation = ButtonDefaults.elevation(0.dp),
+        modifier = Modifier.fillMaxWidth(0.9f),
         onClick = {}
     ) {
         Text(
-            color = MaterialTheme.colors.secondary,
             text = "Log in"
         )
     }
 }
 
-@Preview
+@Preview(widthDp = 360, heightDp = 640)
 @Composable
 fun WelcomePreview() {
     BloomTheme {
