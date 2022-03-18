@@ -50,7 +50,7 @@ fun WelcomeScreen() {
 
 @Composable
 fun WelcomeBgImage() {
-    val image: Painter = painterResource(id = R.drawable.light_welcome_bg)
+    val image: Painter = painterResource(id = R.drawable.welcome_bg)
     Image(
         painter = image,
         contentDescription = "",
@@ -64,8 +64,7 @@ fun WelcomeBgImage() {
 
 @Composable
 fun WelcomeSplashImage() {
-
-        val image: Painter = painterResource(id = R.drawable.light_welcome_illos)
+        val image: Painter = painterResource(id = R.drawable.welcome_illos)
         Image(
             painter = image,
             contentDescription = "",
@@ -78,7 +77,7 @@ fun WelcomeSplashImage() {
 
 @Composable
 fun Name() {
-    val image: Painter = painterResource(id = R.drawable.light_logo)
+    val image: Painter = painterResource(id = R.drawable.logo)
     Image(
         painter = image,
         contentDescription = "",
@@ -130,6 +129,9 @@ private fun ButtonLogin() {
 }
 
 @Preview(widthDp = 360, heightDp = 640)
+@Preview(widthDp = 360, heightDp = 640,
+    uiMode = Configuration.UI_MODE_NIGHT_YES or Configuration.UI_MODE_TYPE_NORMAL
+)
 @Composable
 fun WelcomePreview() {
     BloomTheme {

@@ -1,5 +1,6 @@
 package com.example.bloom
 
+import android.content.res.Configuration
 import android.graphics.Color.alpha
 import android.graphics.Paint
 import android.os.Bundle
@@ -49,7 +50,8 @@ fun LoginContent() {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
-        modifier = Modifier.padding(vertical = 8.dp, horizontal = 16.dp)
+        modifier = Modifier
+            .padding(vertical = 8.dp, horizontal = 24.dp)
     ) {
         Text(
             text = "Log in with email",
@@ -118,6 +120,9 @@ private fun ButtonLogin() {
 }
 
 @Preview(widthDp = 360, heightDp = 640)
+@Preview(widthDp = 360, heightDp = 640,
+    uiMode = Configuration.UI_MODE_NIGHT_YES or Configuration.UI_MODE_TYPE_NORMAL
+)
 @Preview(widthDp = 673, heightDp = 841)
 @Composable
 fun LoginPreview() {
