@@ -8,16 +8,16 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.bloom.ui.theme.BloomTheme
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.material.icons.filled.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 
 class BottomNav : ComponentActivity() {
@@ -32,23 +32,76 @@ class BottomNav : ComponentActivity() {
     }
 }
 
-val items = listOf("Songs", "Artists", "Playlists")
+
 
 @Composable
 fun BloomBottomNav() {
     BottomNavigation {
-        items.forEachIndexed { index, item ->
-            BottomNavigationItem(
-            )
-        }
+        HomeNavItem()
+        FavoritesNavItem()
+        ProfileNavItem()
+        CartNavItem()
     }
 }
 
 @Composable
-fun BottomNavigationItem() {
-    Text(
-        text = "Log in with email",
-    )
+fun HomeNavItem() {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Icon(
+            imageVector = Icons.Filled.Home,
+            contentDescription = stringResource(R.string.Home)
+        )
+        Text(
+            text = stringResource(id = R.string.Home)
+        )
+    }
+}
+
+@Composable
+fun FavoritesNavItem() {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Icon(
+            imageVector = Icons.Filled.FavoriteBorder,
+            contentDescription = stringResource(R.string.Favorites)
+        )
+        Text(
+            text = stringResource(id = R.string.Favorites)
+        )
+    }
+}
+
+@Composable
+fun ProfileNavItem() {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Icon(
+            imageVector = Icons.Filled.AccountCircle,
+            contentDescription = stringResource(R.string.Profile)
+        )
+        Text(
+            text = stringResource(id = R.string.Profile)
+        )
+    }
+}
+
+@Composable
+fun CartNavItem() {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Icon(
+            imageVector = Icons.Filled.ShoppingCart,
+            contentDescription = stringResource(R.string.Cart)
+        )
+        Text(
+            text = stringResource(id = R.string.Cart)
+        )
+    }
 }
 
 @Preview

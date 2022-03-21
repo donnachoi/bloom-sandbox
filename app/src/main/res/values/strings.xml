@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Bloom</string>
     <string name="title_activity_main2">MainActivity2</string>
+
+    <!-- Bottom Navigation -->
+    <string name="Home">Home</string>
+    <string name="Favorites">Favorites</string>
+    <string name="Profile">Profile</string>
+    <string name="Cart">Cart</string>
+
 </resources>
