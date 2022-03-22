@@ -19,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 
 class BottomNav : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,28 +34,33 @@ class BottomNav : ComponentActivity() {
 }
 
 
-
 @Composable
 fun BloomBottomNav() {
-    BottomNavigation {
-        HomeNavItem()
-        FavoritesNavItem()
-        ProfileNavItem()
-        CartNavItem()
+    Surface(
+        color = MaterialTheme.colors.primary
+    ) {
+        Row {
+            HomeNavItem()
+            FavoritesNavItem()
+            ProfileNavItem()
+            CartNavItem()
+        }
     }
 }
 
 @Composable
 fun HomeNavItem() {
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.padding(all = 12.dp)
     ) {
         Icon(
             imageVector = Icons.Filled.Home,
             contentDescription = stringResource(R.string.Home)
         )
         Text(
-            text = stringResource(id = R.string.Home)
+            text = stringResource(id = R.string.Home),
+            style = MaterialTheme.typography.caption
         )
     }
 }
@@ -62,14 +68,16 @@ fun HomeNavItem() {
 @Composable
 fun FavoritesNavItem() {
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.padding(all = 12.dp)
     ) {
         Icon(
             imageVector = Icons.Filled.FavoriteBorder,
             contentDescription = stringResource(R.string.Favorites)
         )
         Text(
-            text = stringResource(id = R.string.Favorites)
+            text = stringResource(id = R.string.Favorites),
+            style = MaterialTheme.typography.caption
         )
     }
 }
@@ -77,14 +85,16 @@ fun FavoritesNavItem() {
 @Composable
 fun ProfileNavItem() {
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.padding(all = 12.dp)
     ) {
         Icon(
             imageVector = Icons.Filled.AccountCircle,
             contentDescription = stringResource(R.string.Profile)
         )
         Text(
-            text = stringResource(id = R.string.Profile)
+            text = stringResource(id = R.string.Profile),
+            style = MaterialTheme.typography.caption
         )
     }
 }
@@ -92,14 +102,16 @@ fun ProfileNavItem() {
 @Composable
 fun CartNavItem() {
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.padding(all = 12.dp)
     ) {
         Icon(
             imageVector = Icons.Filled.ShoppingCart,
             contentDescription = stringResource(R.string.Cart)
         )
         Text(
-            text = stringResource(id = R.string.Cart)
+            text = stringResource(id = R.string.Cart),
+            style = MaterialTheme.typography.caption
         )
     }
 }
