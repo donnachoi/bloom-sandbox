@@ -36,6 +36,7 @@ class Home : ComponentActivity() {
             BloomTheme {
                 // A surface container using the 'background' color from the theme
                 HomeScreen()
+                BloomBottomNav()
             }
         }
     }
@@ -51,6 +52,7 @@ fun HomeScreen() {
             DetailContent()
             MoreDetail()
             RelatedCollections()
+            BloomBottomNav()
         }
     }
 }

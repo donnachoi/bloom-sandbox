@@ -39,7 +39,10 @@ fun BloomBottomNav() {
     Surface(
         color = MaterialTheme.colors.primary
     ) {
-        Row {
+        Row(
+            modifier = Modifier.fillMaxWidth(1f)
+        )
+        {
             HomeNavItem()
             FavoritesNavItem()
             ProfileNavItem()
