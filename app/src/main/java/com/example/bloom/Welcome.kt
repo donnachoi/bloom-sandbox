@@ -41,7 +41,8 @@ fun WelcomeScreen() {
         ) {
             WelcomeSplashImage()
             Name()
-            Description()
+            Description("Beautiful")
+            Description("Tidy")
             ButtonCreate()
             ButtonLogin()
         }
@@ -85,11 +86,14 @@ fun Name() {
 }
 
 @Composable
-fun Description() {
+fun Description(adjective: String): String {
+//    val adjective = "Beautiful"
+    val description = "$adjective home garden solutions"
     Text(
-        text = "Beautiful home garden solutions",
+        text = description,
         modifier = Modifier.padding(bottom = 20.dp)
     )
+    return "$description"
 }
 
 @Composable

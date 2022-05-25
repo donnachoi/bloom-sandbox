@@ -334,7 +334,7 @@ fun CollectionCardEasy() {
 }
 
 
-@Preview(widthDp = 750)
+@Preview()
 @Composable
 fun RelatedCollectionsPreview() {
     BloomTheme {
@@ -342,8 +342,7 @@ fun RelatedCollectionsPreview() {
     }
 }
 
-@Preview(name = "DetailPreview - phone", widthDp = 360, heightDp = 640)
-@Preview(name = "DetailPreview - foldable", widthDp = 673, heightDp = 841)
+@Preview(device = "spec")
 @Composable
 fun DetailPreview() {
     BloomTheme {

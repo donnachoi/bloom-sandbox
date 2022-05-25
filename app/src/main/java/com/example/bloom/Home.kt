@@ -1,5 +1,6 @@
 package com.example.bloom
 
+import android.content.res.Configuration
 import android.graphics.Color.alpha
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -48,7 +49,7 @@ fun HomeScreen() {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            DetailHero()
+//            DetailHero()
             DetailContent()
             MoreDetail()
             RelatedCollections()
@@ -57,7 +58,13 @@ fun HomeScreen() {
     }
 }
 
-@Preview
+@Preview(
+    device = "spec:width=1080px,height=1920px,dpi=480,isRound=false,chinSize=0px",
+    showSystemUi = true, apiLevel = 30,
+    uiMode = Configuration.UI_MODE_NIGHT_NO or Configuration.UI_MODE_TYPE_TELEVISION,
+
+)
+@Preview()
 @Composable
 fun HomePreview() {
     BloomTheme {
