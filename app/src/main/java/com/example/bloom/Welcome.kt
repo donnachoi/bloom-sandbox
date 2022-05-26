@@ -97,6 +97,14 @@ fun Description(adjective: String): String {
 }
 
 @Composable
+fun disclaimer() {
+    val description = "hello"
+    Text(
+        text = description
+    )
+}
+
+@Composable
 fun ButtonCreate() {
     val buttonColors = ButtonDefaults.buttonColors(
         backgroundColor = MaterialTheme.colors.secondary,
